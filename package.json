@@ -3,5 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {},
 	"author": "Andrey Bondarenkov",
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"gulp": "^4.0.2"
+	}
 }
