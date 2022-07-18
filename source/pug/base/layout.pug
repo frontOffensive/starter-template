@@ -1,0 +1,15 @@
+include ../components/header
+include ../components/footer
+
+block variables
+
+doctype html
+html(lang="ru")
+	include head
+
+	body
+		.wrapper
+			+header()
+			main.content
+				block main
+			+footer()

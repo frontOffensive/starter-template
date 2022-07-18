@@ -10,6 +10,12 @@ const config = {
 		baseDir: destPath,
 	},
 
+	pug: {
+		src: `${sourcePath}/pug/pages/*.pug`,
+		dest: destPath,
+		watch: `${sourcePath}/pug/**/*.pug`,
+	},
+
 	senEnv() {
 		this.isProd = process.argv.includes('--prod');
 		this.isDev = !this.isProd;
