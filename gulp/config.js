@@ -6,6 +6,10 @@ const config = {
 		src: destPath,
 	},
 
+	server: {
+		baseDir: destPath,
+	},
+
 	senEnv() {
 		this.isProd = process.argv.includes('--prod');
 		this.isDev = !this.isProd;
