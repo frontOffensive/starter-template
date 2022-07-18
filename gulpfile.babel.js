@@ -11,6 +11,7 @@ export const build = series(
 );
 
 export const dev = series(
+	build,
 	serverStart,
 	parallel(),
 );
