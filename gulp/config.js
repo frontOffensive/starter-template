@@ -16,6 +16,12 @@ const config = {
 		watch: `${sourcePath}/pug/**/*.pug`,
 	},
 
+	stylus: {
+		src: `${sourcePath}/stylus/*.styl`,
+		dest: `${destPath}/css`,
+		watch: `${sourcePath}/stylus/**/*.styl`,
+	},
+
 	senEnv() {
 		this.isProd = process.argv.includes('--prod');
 		this.isDev = !this.isProd;
