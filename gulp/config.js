@@ -28,6 +28,12 @@ const config = {
 		watch: `${sourcePath}/assets/images/**/*.{jpg,jpeg,png,gif,svg,webp}`,
 	},
 
+	fonts: {
+		src: `${sourcePath}/assets/fonts/*.{woff,woff2}`,
+		dest: `${destPath}/fonts`,
+		watch: `${sourcePath}/assets/fonts/*.{woff,woff2}`,
+	},
+
 	senEnv() {
 		this.isProd = process.argv.includes('--prod');
 		this.isDev = !this.isProd;
