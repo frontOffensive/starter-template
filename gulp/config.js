@@ -22,6 +22,12 @@ const config = {
 		watch: `${sourcePath}/stylus/**/*.styl`,
 	},
 
+	images: {
+		src: `${sourcePath}/assets/images/**/*.{jpg,jpeg,png,gif,svg,webp}`,
+		dest: `${destPath}/images`,
+		watch: `${sourcePath}/assets/images/**/*.{jpg,jpeg,png,gif,svg,webp}`,
+	},
+
 	senEnv() {
 		this.isProd = process.argv.includes('--prod');
 		this.isDev = !this.isProd;
