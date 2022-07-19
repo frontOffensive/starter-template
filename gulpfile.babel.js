@@ -4,6 +4,7 @@ import { serverStart } from './gulp/tasks/server';
 import { pugBuild, pugWatch } from './gulp/tasks/pug';
 import { stylusBuild, stylusWatch } from './gulp/tasks/stylus';
 import { imagesBuild, imagesWatch } from './gulp/tasks/images';
+import { scriptsBuild, scriptsWatch } from './gulp/tasks/scripts';
 import config from './gulp/config';
 
 config.senEnv();
@@ -14,6 +15,7 @@ export const build = series(
 		pugBuild,
 		stylusBuild,
 		imagesBuild,
+		scriptsBuild,
 	),
 );
 
@@ -24,5 +26,6 @@ export const dev = series(
 		pugWatch,
 		stylusWatch,
 		imagesWatch,
+		scriptsWatch,
 	),
 );

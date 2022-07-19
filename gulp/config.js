@@ -34,6 +34,13 @@ const config = {
 		watch: `${sourcePath}/assets/fonts/*.{woff,woff2}`,
 	},
 
+	scripts: {
+		src: `${sourcePath}/js/*.js`,
+		dest: `${destPath}/js`,
+		watch: `${sourcePath}/js/**/*.js`,
+		webpackSrc: `${sourcePath}/js`,
+	},
+
 	senEnv() {
 		this.isProd = process.argv.includes('--prod');
 		this.isDev = !this.isProd;
