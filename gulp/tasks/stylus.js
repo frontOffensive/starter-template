@@ -7,11 +7,13 @@ import stylus from 'gulp-stylus';
 import autoPrefixer from 'gulp-autoprefixer';
 import csso from 'gulp-csso';
 import gcmq from 'gulp-group-css-media-queries';
+import gulpif from 'gulp-if';
+import rename from 'gulp-rename';
 import { serverReload } from './server';
 import config from '../config';
 
 const stylusBuild = () => (
-	src(config.stylus.src)
+	src(config.stylus.src, { sourcemaps: config.isDev })
 		.pipe(plumber({
 			errorHandler: notify.onError((error) => ({
 				title: 'Stylus',
@@ -19,12 +21,15 @@ const stylusBuild = () => (
 			})),
 		}))
 		.pipe(stylus())
-		.pipe(autoPrefixer({
+		.pipe(gulpif(config.isProd, autoPrefixer({
 			cascade: true,
-		}))
+		})))
 		.pipe(gcmq())
-		.pipe(csso())
-		.pipe(dest(config.stylus.dest))
+		.pipe(rename({
+			suffix: '.min',
+		}))
+		.pipe(gulpif(config.isProd, csso()))
+		.pipe(dest(config.stylus.dest, { sourcemaps: config.isDev }))
 );
 
 const stylusWatch = () => watch(
